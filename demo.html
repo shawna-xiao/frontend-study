@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>demo</title>
+</head>
+
+<body>
+    <h1>主标题</h1>
+    <h2>副标题</h2>
+    <strong>加粗</strong>
+    <em>斜体</em>
+    <abbr title="note">abbr</abbr>
+
+    <input type="radio" name="gender" value="male">Male
+    <input type="radio" name="gender" value="female">Female
+    <iframe src="" frameborder="0" width="200" height="200"></iframe>
+    <br/>
+    <!-- 单元格合并 -->
+    <!-- 1.确定合并类型（跨行、跨列） -->
+    <!-- 2.寻找目标单元格，合并单元格个数 -->
+    <!-- 3.删除多余单元格 -->
+    <table border="1">
+        <tr>
+            <td rowspan="2">1</td>
+            <td colspan="2">2</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table>
+    <!-- 自定义列表 -->
+    <dl>
+        <dt>联系我们</dt>
+        <dd>新浪微博</dd>
+        <dd>官方网站</dd>
+    </dl>
+    <dl>
+        <dt>联系我们</dt>
+        <dd>新浪微博</dd>
+        <dd>官方网站</dd>
+    </dl>
+    <!-- 表单 -->
+    <!--
+        action：url地址，用于指定接收表单数据的服务器的地址 
+        method：数据提交方式，get/post
+        name: 表单的名称，用于区分不同的表单域
+    -->
+    <form action="demo.php" method="POST">
+        <!-- 文件域,上传文件 -->
+        <input type="file">
+        <!-- 重置表单 -->
+        <input type="reset"><br>
+        <!-- label标签的应用,for与id绑定 -->
+        <label for="username">用户名：</label>
+        <input type="text" id="username">
+    </form>
+    <!-- 实现一个收起展开的功能 -->
+    <div class="td">
+        <input id="check1" type="checkbox">
+        <p>个人觉得，display:table-cell最强的应用是可以任意个数列表的等宽效果。</p>
+        <div class="element">
+        <p>display:table-cell其他一些应用，例如，两栏自适应布局，垂直居中效果等等都是可以通过其他技术手段模拟出来的，但是，根据列表个数自动等宽的效果，其他CSS是很难模拟的，尤其当需要兼容IE8浏览器的时候。</p>
+        </div>
+        <label for="check1" class="check-in">更多↓</label>
+        <label for="check1" class="check-out">收起↑</label>
+    </div>
+</body>
+<!-- 内部样式表 -->
+<style>
+/* background属性 */
+body {
+    background-image: url('1.jpg');
+    background-repeat: no-repeat;
+    /* background-position: center top; 不区分顺序 */
+    /* background-position: 10px 20px; 精确数值，区分顺序 */
+    /* background-position: 10px center;  混合单位，区分顺序 */
+    /* 背景图像滚动 scroll|fixed */
+    background-attachment: fixed;
+    /* 复合写法: 背景颜色 背景地址 背景平铺 背景图像滚动 背景定位 */
+    background: white url('1.jpg') no-repeat fixed top center;
+    /* background-size: width height;如果只给出一个值，那么第二个值默认为auto
+       cover 此时会保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小。
+       contain 此时会保持图像的纵横比并将图像缩放成将适合背景定位区域的最大大小。
+     */
+    background-size: contain;
+}
+#check1 {
+    display: none;
+}
+.check-in, .check-out {
+    color: #34538b;
+    cursor: pointer;
+}
+.element {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .25s;
+}
+:checked ~ .element {
+    max-height: 666px;
+}
+:checked ~ .check-in {
+    display: none;
+}
+:checked ~ .check-out {
+    display: inline;
+}
+.check-in {
+    display: inline;
+}
+.check-out {
+    display: none;
+}
+/* font复合属性写法 */
+/* font: font-style font-weight font-size/line-height font-family */
+.title-font {
+    font: italic 700 16px/16px 'Microsoft yahei';
+}
+</style>
+
+</html>
